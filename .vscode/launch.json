@@ -1,0 +1,37 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ImsablablaConfigserverApplication<imsablabla-configserver>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "fr.imsa.imsablablaconfigserver.ImsablablaConfigserverApplication",
+            "projectName": "imsablabla-configserver",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ImsablablaEurekaApplication<imsablabla-eureka>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "fr.imsa.imsablablaeureka.ImsablablaEurekaApplication",
+            "projectName": "imsablabla-eureka",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ImsablablaGatewayApplication<imsablabla-gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "fr.imsa.imsablablagateway.ImsablablaGatewayApplication",
+            "projectName": "imsablabla-gateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

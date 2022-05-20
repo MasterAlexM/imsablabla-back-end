@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  imsablabla-db:
+    image: postgres:13.5-alpine
+    restart: unless-stopped
+    ports:
+      - ${DB_PORT}:5432
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PWD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
+    driver: local

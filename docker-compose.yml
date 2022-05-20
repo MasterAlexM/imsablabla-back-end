@@ -1,0 +1,58 @@
+version: '3.8'
+services:
+  config-server:
+    build: imsablabla-configserver/.
+    environment:
+      - JAVA_TOOL_OPTIONS=-Dhttp.proxyHost=192.168.2.1 -Dhttp.proxyPort=63128 -Dhttps.proxyHost=192.168.2.1 -Dhttps.proxyPort=63128 -Dhttp.nonProxyHosts=127.0.0.1\|localhost -Dproxy.http.host=192.168.2.1 -Dproxy.http.port=63128 -Dproxy.https.host=192.168.2.1 -Dproxy.https.port=63128 -Dproxy.http.nonProxyHosts=127.0.0.1\|localhost -Dproxy.https.nonProxyHosts=127.0.0.1\|localhost
+    ports:
+      - "8888:8888"
+    container_name: config-registry
+    restart: on-failure
+    networks:
+      imsablabla:
+  # eureka-server:
+  #   build: imsablabla-eureka/.
+  #   depends_on:
+  #     - config-server
+  #   ports:
+  #     - "7150:7150"
+  #     - "8761:8761"
+  #   container_name: service-registry
+  #   networks:
+  #     imsablabla:
+#   gateway-server:
+#     build: imsablabla-gateway/.
+#     depends_on:
+#       - eureka-server
+#       - config-server
+#     ports:
+#       - "7151:7151"
+#     container_name: service-gateway
+#     networks:
+#       imsablabla:
+#   imsablabla-db:
+#     image: postgres:13.5-alpine
+#     restart: unless-stopped
+#     container_name: service-database
+#     depends_on:
+#       - eureka-server
+#       - config-server
+#       - gateway-server
+#     ports:
+#       - ${DB_PORT}:5432
+#     environment:
+#       - POSTGRES_USER=${DB_USER}
+#       - POSTGRES_PASSWORD=${DB_PWD}
+#       - POSTGRES_DB=${DB_NAME}
+#     volumes:
+#       - db:/var/lib/postgresql/data
+#     networks:
+#       imsablabla:
+
+# volumes:
+#   db:
+#     driver: local
+
+networks:
+  imsablabla:
+    driver: bridge
